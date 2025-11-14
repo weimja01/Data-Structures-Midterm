@@ -1,11 +1,15 @@
 #include <iostream>
-#include "unorderdLinkedList.h"
-#include "location.h"
-#include "linkedStack.h"
-#include "problem.h"
+
+#include "game.h"
+
 
 int main(){
-    //unordered linked list
+
+    Game oregonTrail;
+
+    oregonTrail.run();
+
+    /*/unordered linked list
     unorderedLinkedList<Location> trail;
     linkedStack<Problem> problemStack;
 
@@ -30,6 +34,7 @@ int main(){
 
     Problem topProblem = problemStack.peek();
     std::cout << topProblem << std::endl;
+    */
 
     return 0;
 
