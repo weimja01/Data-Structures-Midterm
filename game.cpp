@@ -60,7 +60,7 @@ void Game::executeAction(const Action &action)
     }
     else if (action.actionType == "rest")
     {
-        health += 20;
+        health += 15;
         if (health > 100)
             health = 100;
         food -= 10;
@@ -70,7 +70,7 @@ void Game::executeAction(const Action &action)
     }
     else if (action.actionType == "hunt")
     {
-        int foodGained = 30 + (rand() % 40);
+        int foodGained = 15 + (rand() % 40);
         food += foodGained;
         health -= 5;
         std::cout << "You went hunting." << std::endl;
@@ -80,7 +80,7 @@ void Game::executeAction(const Action &action)
     std::cout << std::endl;
 }
 
-void Game::displayQueuedActions()
+void Game::executeQueuedAction()
 {
     if (actionQueue.isEmptyQueue())
     {
@@ -110,18 +110,31 @@ void Game::displayQueuedActions()
               << std::endl;
 }
 
+void Game::displayQueuedActions()
+{
+    if (actionQueue.isEmptyQueue())
+    {
+        std::cout << "*** No Actions Queued ***" << std::endl;
+    }
+    else
+    {
+        std::cout << "=== QUEUED ACTIONS (executed in order) ===" << std::endl;
+        std::cout << "You have actions queues. Choose 'Execute actions' to run them. \n"
+                  << std::endl;
+    }
+}
+
 void Game::displayMenu()
 {
     std::cout << "========================================" << std::endl;
     std::cout << "WHAT DO YOU WANT TO DO?" << std::endl;
     std::cout << "========================================" << std::endl;
     std::cout << "1. Solve current problem" << std::endl;
-    std::cout << "2. Queue and action" << std::endl;
+    std::cout << "2. Queue an action" << std::endl;
     std::cout << "3. Execute queued actions" << std::endl;
     std::cout << "4. View queued actions" << std::endl;
     std::cout << "5. View detailed status" << std::endl;
-    std::cout << "6. Manually add problem" << std::endl;
-    std::cout << "7. Quit game" << std::endl;
+    std::cout << "6. Quit game" << std::endl;
     std::cout << "========================================" << std::endl;
     std::cout << "Enter choice: ";
 }
@@ -289,19 +302,16 @@ void Game::moveToNextLocation()
 
     // Consume food for travel
     food -= 20;
+    health -= 10;
 
     std::cout << "\n======================================" << std::endl;
     std::cout << "Traveling to next location..." << std::endl;
     std::cout << "You consumed 20 lbs of food." << std::endl;
+    std::cout << "Exhaustion: lose 10 health." << std::endl;
     std::cout << "======================================\n"
               << std::endl;
     if (locationCount < 5)
     {
-        // Small chance of random problem when traveling (33% chance)
-        if (rand() % 3 == 1)
-        {
-            generateRandomProblem();
-        }
         // Random chance of getting 0-3 problems
         int numProblems = rand() % 4; // 0, 1, 2, or 3 problems
         for (int i = 0; i < numProblems; i++)
@@ -429,9 +439,6 @@ void Game::run()
                       << std::endl;
             break;
         case 6:
-            generateRandomProblem();
-            break;
-        case 7:
             std::cout << "Thanks for playing!" << std::endl;
             gameOver = true;
         default:
@@ -441,6 +448,10 @@ void Game::run()
 
         std::cout << "\nPress Enter to continue...";
         std::cin.get();
+        if (rand() % 3 == 1)
+        {
+            generateRandomProblem();
+        }
         clearScreen();
         std::cout << "\n\n";
     }
