@@ -29,7 +29,7 @@ public:
     // action management
     void addActionToQueue();
     void executeQueuedAction();
-    void executeAction();
+    void executeAction(const Action &action);
 
     void displayQueuedActions();
     void displayMenu();

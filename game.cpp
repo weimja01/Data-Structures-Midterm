@@ -51,6 +51,34 @@ void Game::addActionToQueue()
     }
 }
 
+void Game::executeAction(const Action &action)
+{
+    std::cout << "\n>>> Executing: " << action.actionType << std::endl;
+    if (action.actionType == "travel")
+    {
+        moveToNextLocation();
+    }
+    else if (action.actionType == "rest")
+    {
+        health += 20;
+        if (health > 100)
+            health = 100;
+        food -= 10;
+        std::cout << "Your Party Rested." << std::endl;
+        std::cout << "Gained: 20 Health (100 max)." << std::endl;
+        std::cout << "Lost: 10 food." << std::endl;
+    }
+    else if (action.actionType == "hunt")
+    {
+        int foodGained = 30 + (rand() % 40);
+        food += foodGained;
+        health -= 5;
+        std::cout << "You went hunting." << std::endl;
+        std::cout << "Gained:" << foodGained << "lbs of food." << std::endl;
+        std::cout << "Lost: 5 health (exhaustion)." << std::endl;
+    }
+}
+
 void Game::displayMenu()
 {
     std::cout << "========================================" << std::endl;
