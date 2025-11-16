@@ -10,38 +10,29 @@
 
 class Game
 {
-    private:
+private:
     unorderedLinkedList<Location> trail;
     linkedStack<Problem> problemStack;
     linkedListIterator<Location> currentLocation;
-
 
     int health;
     int food;
     bool gameOver;
     int locationCount;
 
-    public:
+public:
     Game();
-    //void displayMenu();
+    void displayMenu();
     void setupTrail();
-    // void addProblem(const Problem& prob);
-    // void displayProblems();
-    // void solveTopProblem();
-     void displayCurrentLocation();
-    // void displayStatus();
-    // void moveToNextLocation();
-    // bool checkWinCondition();
-    // bool checkLoseCondition();
+    void addProblem(const Problem &prob);
+    void displayProblems();
+    void solveTopProblem();
+    void displayCurrentLocation();
+    void displayStatus();
+    void moveToNextLocation();
+    bool checkWinCondition();
+    bool checkLoseCondition();
     void run();
-    
-
-
-
 };
-
-
-
-
 
 #endif
