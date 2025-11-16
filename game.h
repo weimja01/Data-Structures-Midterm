@@ -6,14 +6,16 @@
 #include "location.h"
 #include "unorderdLinkedList.h"
 #include "linkedStack.h"
+#include "linkedQueue.h"
 #include "linkedListIterator.h"
+#include "action.h"
 
 class Game
 {
 private:
     unorderedLinkedList<Location> trail;
     linkedStack<Problem> problemStack;
-
+    linkedQueue<Action> actionQueue;
     linkedListIterator<Location> currentLocation;
 
     int health;
@@ -23,6 +25,12 @@ private:
 
 public:
     Game();
+
+    // action management
+    void addActionToQueue();
+    void executeQueuedAction();
+    void executeAction();
+
     void displayMenu();
     void setupTrail();
     void addProblem(const Problem &prob);
