@@ -77,6 +77,37 @@ void Game::executeAction(const Action &action)
         std::cout << "Gained:" << foodGained << "lbs of food." << std::endl;
         std::cout << "Lost: 5 health (exhaustion)." << std::endl;
     }
+    std::cout << std::endl;
+}
+
+void Game::displayQueuedActions()
+{
+    if (actionQueue.isEmptyQueue())
+    {
+        std::cout << "No actions to execute!" << std::endl;
+        return;
+    }
+
+    std::cout << "\n========================================" << std::endl;
+    std::cout << "EXECUTING QUEUED ACTIONS..." << std::endl;
+    std::cout << "========================================" << std::endl;
+
+    while (!actionQueue.isEmptyQueue())
+    {
+        Action currentAction = actionQueue.dequeue();
+        executeAction(currentAction);
+
+        if (checkLoseCondition())
+        {
+            gameOver = true;
+            return;
+        }
+
+        std::cout << "Press Enter to continue to next action...";
+        std::cin.get();
+    }
+    std::cout << "All actions completed!\n"
+              << std::endl;
 }
 
 void Game::displayMenu()
@@ -85,10 +116,12 @@ void Game::displayMenu()
     std::cout << "WHAT DO YOU WANT TO DO?" << std::endl;
     std::cout << "========================================" << std::endl;
     std::cout << "1. Solve current problem" << std::endl;
-    std::cout << "2. Move to next location" << std::endl;
-    std::cout << "3. View detailed status" << std::endl;
-    std::cout << "4. Manually add problem (testing)" << std::endl;
-    std::cout << "5. Quit game" << std::endl;
+    std::cout << "2. Queue and action" << std::endl;
+    std::cout << "3. Execute queued actions" << std::endl;
+    std::cout << "4. View queued actions" << std::endl;
+    std::cout << "5. View detailed status" << std::endl;
+    std::cout << "6. Manually add problem" << std::endl;
+    std::cout << "7. Quit game" << std::endl;
     std::cout << "========================================" << std::endl;
     std::cout << "Enter choice: ";
 }
@@ -372,7 +405,7 @@ void Game::run()
 
         int choice;
         std::cin >> choice;
-        std::cin.ignore(); // Clear newline from input buffer
+        std::cin.ignore();
 
         std::cout << std::endl;
 
@@ -383,21 +416,24 @@ void Game::run()
             solveTopProblem();
             break;
         case 2:
-            moveToNextLocation();
+            addActionToQueue();
             break;
         case 3:
-            // Detailed status already shown at top of loop
+            executeQueuedAction();
+            break;
+        case 4:
+            displayQueuedActions();
+            break;
+        case 5:
             std::cout << "Status displayed above.\n"
                       << std::endl;
             break;
-        case 4:
-            // Manual problem addition for testing
+        case 6:
             generateRandomProblem();
             break;
-        case 5:
+        case 7:
             std::cout << "Thanks for playing!" << std::endl;
             gameOver = true;
-            break;
         default:
             std::cout << "Invalid choice. Try again.\n"
                       << std::endl;
@@ -405,7 +441,7 @@ void Game::run()
 
         std::cout << "\nPress Enter to continue...";
         std::cin.get();
-        // clearScreen();
+        clearScreen();
         std::cout << "\n\n";
     }
 
