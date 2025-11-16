@@ -8,10 +8,11 @@ int main()
 
     srand(time(0));
 
-    // Create and run game
+    // // Create and run game
     Game oregonTrail;
+    oregonTrail.addActionToQueue();
 
-    oregonTrail.run();
+    // oregonTrail.run();
 
     return 0;
 }

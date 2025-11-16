@@ -31,6 +31,7 @@ public:
     void executeQueuedAction();
     void executeAction();
 
+    void displayQueuedActions();
     void displayMenu();
     void setupTrail();
     void addProblem(const Problem &prob);

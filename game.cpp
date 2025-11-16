@@ -16,6 +16,41 @@ Game::Game()
     locationCount = 1;
 }
 
+void Game::addActionToQueue()
+{
+    std::cout << "\n=== QUEUE AN ACTION ===" << std::endl;
+    std::cout << "1 Travel (Move to the next location)" << std::endl;
+    std::cout << "2 Rest (restore health)" << std::endl;
+    std::cout << "3 Hunt (get food)" << std::endl;
+    std::cout << "4 Cancel (restore health)" << std::endl;
+    std::cout << "Enter choice: " << std::endl;
+
+    int choice;
+    std::cin >> choice;
+    std::cin.ignore();
+
+    switch (choice)
+    {
+    case 1:
+        actionQueue.enqueue(Action("travel"));
+        std::cout << "Queued: Travel" << std::endl;
+        break;
+    case 2:
+        actionQueue.enqueue(Action("rest"));
+        std::cout << "Queued: Rest" << std::endl;
+        break;
+    case 3:
+        actionQueue.enqueue(Action("hunt"));
+        std::cout << "Queued: Hunt" << std::endl;
+        break;
+    case 4:
+        std::cout << "Cancelled." << std::endl;
+        break;
+    default:
+        std::cout << "Invalid Choice." << std::endl;
+    }
+}
+
 void Game::displayMenu()
 {
     std::cout << "========================================" << std::endl;
