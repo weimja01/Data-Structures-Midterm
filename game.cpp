@@ -141,7 +141,7 @@ void Game::displayMenu()
 
 void Game::setupTrail()
 {
-    std::cout << "Setting up the Oregon Trail..." << std::endl
+    std::cout << "Setting up the Oregon Journey..." << std::endl
               << std::endl;
 
     Location loc1("Independence, Missouri", "Starting point. Time to head West!");
@@ -368,7 +368,7 @@ void Game::run()
 {
     // Game display
     std::cout << "========================================" << std::endl;
-    std::cout << "     THE OREGON TRAIL" << std::endl;
+    std::cout << "     THE OREGON JOURNEY" << std::endl;
     std::cout << "========================================\n"
               << std::endl;
 

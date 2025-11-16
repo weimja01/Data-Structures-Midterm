@@ -11,7 +11,7 @@
                 "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/game.cpp",
                 "-o",
-                "${workspaceFolder}/oregontrail.exe"
+                "${workspaceFolder}/oregonjourney.exe"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

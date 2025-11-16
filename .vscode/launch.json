@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Oregon Trail",
+            "name": "Debug Oregon JOURNEY",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/oregontrail.exe",
+            "program": "${workspaceFolder}/oregonjourney.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
