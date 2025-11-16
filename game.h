@@ -32,6 +32,8 @@ public:
     void moveToNextLocation();
     bool checkWinCondition();
     bool checkLoseCondition();
+
+    void generateRandomProblem();
     void run();
 };
 

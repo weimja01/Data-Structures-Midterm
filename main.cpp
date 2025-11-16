@@ -2,17 +2,14 @@
 
 #include "game.h"
 
-
-int main(){
+int main()
+{
 
     Game oregonTrail;
 
-    oregonTrail.run();
-
-
+    // oregonTrail.run();
+    //  oregonTrail.displayStatus();
+    //  oregonTrail.displayMenu();
 
     return 0;
-
 }
-
-
