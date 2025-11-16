@@ -13,6 +13,7 @@ class Game
 private:
     unorderedLinkedList<Location> trail;
     linkedStack<Problem> problemStack;
+
     linkedListIterator<Location> currentLocation;
 
     int health;
@@ -34,6 +35,8 @@ public:
     bool checkLoseCondition();
 
     void generateRandomProblem();
+
+    void clearScreen();
     void run();
 };
 
