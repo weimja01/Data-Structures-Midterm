@@ -1,5 +1,6 @@
 #ifndef LINKEDI_H
 #define LINKEDI_H
+#include <stdexcept>
 #include "node.h"
 
 template <class t>
@@ -36,7 +37,7 @@ t &linkedListIterator<t>::operator*()
     {
         return *(current->data);
     }
-    return t();
+   throw std::runtime_error("Cannot dereference null iterator");
 }
 
 template <class t>
@@ -49,6 +50,15 @@ template <class t>
 bool linkedListIterator<t>::operator!=(const linkedListIterator<t> &right) const
 {
     return this->current != right.current;
+}
+template <class t>
+linkedListIterator<t> linkedListIterator<t>::operator++()
+{
+    if (current != nullptr)
+    {
+        current = current->link;
+    }
+    return *this;
 }
 
 #endif

@@ -23,11 +23,12 @@ class Game
 
     public:
     Game();
+    //void displayMenu();
     void setupTrail();
     // void addProblem(const Problem& prob);
     // void displayProblems();
     // void solveTopProblem();
-    void displayCurrentLocation();
+     void displayCurrentLocation();
     // void displayStatus();
     // void moveToNextLocation();
     // bool checkWinCondition();
