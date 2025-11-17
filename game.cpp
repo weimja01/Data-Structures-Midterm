@@ -214,7 +214,7 @@ void Game::solveTopProblem()
     {
         health -= 15;
         food -= 10;
-        std::cout << "Your party rested to recover from illness." << std::endl;
+        std::cout << "Your party rested to recover from dysentery." << std::endl;
         std::cout << "Lost: 15 health, 10 food" << std::endl;
     }
     else if (solved.type == "Bad Weather")
