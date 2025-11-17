@@ -144,11 +144,11 @@ void Game::setupTrail()
     std::cout << "Setting up the Oregon Journey..." << std::endl
               << std::endl;
 
-    Location loc1("Independence, Missouri", "Starting point. Time to head West!");
-    Location loc2("Kansas River", "A river crossing. Dangerous but necessary.");
-    Location loc3("Fort Kearney", "A rest stop on the plains.");
-    Location loc4("Chimney Rock", "A famous landmark. Halfway there!");
-    Location loc5("Oregon City", "You made it! The end of the trail!");
+    Location loc1("Independence, Missouri", "Starting point. April 1, 1848");
+    Location loc2("Kansas River", "A river crossing. May 7, 1848");
+    Location loc3("Fort Kearney", "A rest stop on the plains. June 2, 1848");
+    Location loc4("Chimney Rock", "A famous landmark. July 18, 1848");
+    Location loc5("Oregon City", "You made it! August 23, 1848");
 
     trail.insert(loc1);
     trail.insert(loc2);
