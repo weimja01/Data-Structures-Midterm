@@ -313,7 +313,7 @@ void Game::moveToNextLocation()
     if (locationCount < 5)
     {
         // Random chance of getting 0-3 problems
-        int numProblems = rand() % 4; // 0, 1, 2, or 3 problems
+        int numProblems = rand() % 4; 
         for (int i = 0; i < numProblems; i++)
         {
             generateRandomProblem();
@@ -375,7 +375,7 @@ void Game::run()
     // Setup the trail
     setupTrail();
 
-    // Add one starting problem for demonstration
+    // Add one starting 
     addProblem(Problem("Broken Wagon", "Your wagon needs repair before departing."));
 
     // Main game loop
