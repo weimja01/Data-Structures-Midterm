@@ -24,7 +24,7 @@ struct Problem
     //printing
     friend std::ostream& operator <<(std::ostream& out, const Problem& prob)
     {
-        out << "[" << prob.type << "]" << prob.description;
+        out << "[" << prob.type << "] " << prob.description;
         return out;
     }
 

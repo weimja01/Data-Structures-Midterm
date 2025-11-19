@@ -144,11 +144,11 @@ void Game::setupTrail()
     std::cout << "Setting up the Oregon Journey..." << std::endl
               << std::endl;
 
-    Location loc1("Independence, Missouri", "Starting point. Time to head West!");
-    Location loc2("Kansas River", "A river crossing. Dangerous but necessary.");
-    Location loc3("Fort Kearney", "A rest stop on the plains.");
-    Location loc4("Chimney Rock", "A famous landmark. Halfway there!");
-    Location loc5("Oregon City", "You made it! The end of the trail!");
+    Location loc1("Independence, Missouri", "Starting point. April 1, 1848");
+    Location loc2("Kansas River", "A river crossing. May 7, 1848");
+    Location loc3("Fort Kearney", "A rest stop on the plains. June 2, 1848");
+    Location loc4("Chimney Rock", "A famous landmark. July 18, 1848");
+    Location loc5("Oregon City", "You made it! August 23, 1848");
 
     trail.insert(loc1);
     trail.insert(loc2);
@@ -214,7 +214,7 @@ void Game::solveTopProblem()
     {
         health -= 15;
         food -= 10;
-        std::cout << "Your party rested to recover from illness." << std::endl;
+        std::cout << "Your party rested to recover from dysentery." << std::endl;
         std::cout << "Lost: 15 health, 10 food" << std::endl;
     }
     else if (solved.type == "Bad Weather")
@@ -313,7 +313,7 @@ void Game::moveToNextLocation()
     if (locationCount < 5)
     {
         // Random chance of getting 0-3 problems
-        int numProblems = rand() % 4; // 0, 1, 2, or 3 problems
+        int numProblems = rand() % 4; 
         for (int i = 0; i < numProblems; i++)
         {
             generateRandomProblem();
@@ -375,7 +375,7 @@ void Game::run()
     // Setup the trail
     setupTrail();
 
-    // Add one starting problem for demonstration
+    // Add one starting 
     addProblem(Problem("Broken Wagon", "Your wagon needs repair before departing."));
 
     // Main game loop
